@@ -5,6 +5,7 @@ angular.module('owm.finance.v4', [])
 .controller('FinanceV4OverviewController', function ($scope, me, $stateParams, invoice2Service, paymentService, voucherService, linksService, invoiceService, alertService, $state, $mdDialog, $q, appConfig, $window) {
   $scope.config = appConfig;
   $scope.me = me;
+  $scope.Math = $window.Math;
   $scope.provider = me.provider.id;
 
   $scope.loaded = {ungrouped: false, grouped: false};
@@ -113,7 +114,7 @@ angular.module('owm.finance.v4', [])
       return 'Nog te betalen';
     }
     if(status === 'USER_PAID') {
-      return 'Betaling voldaan';
+      return 'Betaald';
     }
     if(status === 'PROVIDER_PAY') {
       return 'In behandeling';
